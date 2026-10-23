@@ -10,9 +10,9 @@ export default function Certificates() {
       <div className="container">
         <SectionHeader
           tag="03 // ACHIEVEMENTS"
-          title="Sertifikat &"
-          highlight="Pencapaian"
-          sub="Kompetisi, penghargaan, dan sertifikasi yang menjadi bukti perjalanan belajar saya."
+          title="Certificates &"
+          highlight="Achievements"
+          sub="Competitions, programs, and certifications that mark my journey — from national robot competitions to campus awards and language tests."
         />
 
         <div className="cert-grid">
@@ -37,10 +37,11 @@ export default function Certificates() {
               </div>
               <h3>{c.title}</h3>
               <p className="cert-issuer">{c.issuer}</p>
+              {c.desc && <p className="cert-desc">{c.desc}</p>}
               <div className="cert-foot">
                 <span>[{c.year}]</span>
                 <a href={c.link} target="_blank" rel="noreferrer" id={`cert-link-${i}`}>
-                  Lihat <FaArrowUpRightFromSquare size={11} />
+                  View <FaArrowUpRightFromSquare size={11} />
                 </a>
               </div>
             </motion.article>

@@ -18,9 +18,12 @@ export default function Contact() {
             <div className="cert-glow" style={{ width: 400, height: 400, top: -200, right: -100 }} />
             <div className="section-tag">05 // CONNECT</div>
             <h2>
-              Punya ide robot atau drone? <span className="neon">Ayo bangun bersama.</span>
+              Got a mobile app or microcontroller idea? <span className="neon">Let's build it together.</span>
             </h2>
-            <p>Saya terbuka untuk kolaborasi, freelance project, maupun sekadar diskusi seputar embedded system dan UAV.</p>
+            <p>
+              I'm open to collaboration, freelance projects, or just a friendly chat about mobile development and
+              embedded systems.
+            </p>
             <div className="contact-actions">
               <a href={`mailto:${profile.email}`} className="btn btn-primary" id="contact-email">
                 <FaEnvelope /> {profile.email}

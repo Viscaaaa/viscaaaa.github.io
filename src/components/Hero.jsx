@@ -1,52 +1,21 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import {
   FaGithub,
   FaLinkedin,
-  FaInstagram,
-  FaYoutube,
+  FaEnvelope,
   FaPaperPlane,
   FaDownload,
-  FaBatteryThreeQuarters,
-  FaSatelliteDish,
-  FaCrosshairs,
+  FaMicrochip,
+  FaMobileScreenButton,
 } from 'react-icons/fa6'
 import { profile } from '../data/portfolio'
 import { fadeUp } from './SectionHeader'
 
-function Counter({ value, suffix }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-  const [n, setN] = useState(0)
-
-  useEffect(() => {
-    if (!inView) return
-    let frame
-    const start = performance.now()
-    const dur = 1600
-    const tick = (now) => {
-      const p = Math.min((now - start) / dur, 1)
-      setN(Math.round(value * (1 - Math.pow(1 - p, 3))))
-      if (p < 1) frame = requestAnimationFrame(tick)
-    }
-    frame = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(frame)
-  }, [inView, value])
-
-  return (
-    <span ref={ref}>
-      {n}
-      {suffix}
-    </span>
-  )
-}
-
 const socialIcons = {
+  email: FaEnvelope,
   github: FaGithub,
   linkedin: FaLinkedin,
-  instagram: FaInstagram,
-  youtube: FaYoutube,
 }
 
 export default function Hero() {
@@ -98,9 +67,9 @@ export default function Hero() {
 
             <motion.div className="hero-cta" variants={fadeUp} initial="hidden" animate="show" custom={5}>
               <a href="#projects" className="btn btn-primary" id="hero-cta-projects">
-                <FaPaperPlane /> Lihat Project
+                <FaPaperPlane /> View Projects
               </a>
-              <a href={profile.cvUrl} className="btn btn-ghost" id="hero-cta-cv">
+              <a href={profile.cvUrl} className="btn btn-ghost" id="hero-cta-cv" download>
                 <FaDownload /> Download CV
               </a>
             </motion.div>
@@ -137,47 +106,22 @@ export default function Hero() {
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <img src={profile.heroImage} alt="Ilustrasi drone dengan microcontroller bercahaya hijau neon" />
+              <img src={profile.heroImage} alt="Glowing green neon wireframe illustration of a drone with a microcontroller" />
             </motion.div>
 
             <motion.div className="hud-label l1" animate={{ y: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-              <FaSatelliteDish />
+              <FaMicrochip />
               <div>
-                <small>GPS LOCK</small>12 SAT
+                <small>MICROCONTROLLER</small>ESP32 · Arduino Uno
               </div>
             </motion.div>
             <motion.div className="hud-label l2" animate={{ y: [0, 8, 0] }} transition={{ duration: 4.5, repeat: Infinity }}>
-              <FaBatteryThreeQuarters />
+              <FaMobileScreenButton />
               <div>
-                <small>BATTERY</small>16.8V · 87%
-              </div>
-            </motion.div>
-            <motion.div className="hud-label l3" animate={{ y: [0, -6, 0] }} transition={{ duration: 3.8, repeat: Infinity }}>
-              <FaCrosshairs />
-              <div>
-                <small>ALTITUDE</small>120.4 m
+                <small>MOBILE DEVELOPMENT</small>Flutter · Kotlin
               </div>
             </motion.div>
           </motion.div>
-        </div>
-
-        <div className="hero-stats">
-          {profile.stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              className="hud-card stat"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              custom={i}
-            >
-              <div className="stat-num">
-                <Counter value={s.value} suffix={s.suffix} />
-              </div>
-              <div className="stat-label">{s.label}</div>
-            </motion.div>
-          ))}
         </div>
       </div>
 
