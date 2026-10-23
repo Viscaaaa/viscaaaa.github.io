@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original source materials — not part of the site build.
+# Web-ready copies live in public/, so these stay local-only.
+/arduino/
+/certificate/
+/component/
+/dokumentasi iot/
+/mobile/
+/sekarya/
+/Curriculum Vitae*.pdf
+/WhatsApp Image*.jpeg

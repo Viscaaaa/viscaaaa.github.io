@@ -5,9 +5,10 @@ import { profile } from '../data/portfolio'
 const links = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'career', label: 'Karir' },
-  { id: 'certificates', label: 'Sertifikat' },
-  { id: 'projects', label: 'Project' },
+  { id: 'education', label: 'Education' },
+  { id: 'career', label: 'Career' },
+  { id: 'certificates', label: 'Certificates' },
+  { id: 'projects', label: 'Projects' },
 ]
 
 export default function Navbar() {
@@ -38,7 +39,7 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <nav className="container nav-inner" aria-label="Navigasi utama">
+      <nav className="container nav-inner" aria-label="Main navigation">
         <a href="#home" className="logo" id="nav-logo">
           <FaMicrochip className="logo-icon" />
           {profile.name.toUpperCase()}
@@ -46,7 +47,7 @@ export default function Navbar() {
         </a>
 
         <ul className={`nav-links ${open ? 'open' : ''}`}>
-          {links.map((l, i) => (
+          {links.map((l) => (
             <li key={l.id}>
               <a
                 href={`#${l.id}`}
@@ -54,7 +55,6 @@ export default function Navbar() {
                 className={active === l.id ? 'active' : ''}
                 onClick={() => setOpen(false)}
               >
-                <span className="idx">0{i}.</span>
                 {l.label}
               </a>
             </li>
@@ -64,7 +64,7 @@ export default function Navbar() {
         <button
           className="nav-toggle"
           id="nav-toggle"
-          aria-label="Buka menu"
+          aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
         >
           {open ? <FaXmark /> : <FaBars />}

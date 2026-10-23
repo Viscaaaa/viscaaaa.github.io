@@ -3,6 +3,7 @@ import CircuitBackground from './components/CircuitBackground'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Education from './components/Education'
 import Career from './components/Career'
 import Certificates from './components/Certificates'
 import Projects from './components/Projects'
@@ -20,6 +21,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Education />
         <Career />
         <Certificates />
         <Projects />

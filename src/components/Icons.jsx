@@ -6,22 +6,20 @@ import {
   FaCertificate,
   FaWifi,
   FaBolt,
-  FaSatelliteDish,
+  FaMobileScreenButton,
 } from 'react-icons/fa6'
-import { TbDrone } from 'react-icons/tb'
 import { GiMechanicalArm } from 'react-icons/gi'
 
 /** Maps string keys used in data/portfolio.js to icon components */
 export const iconMap = {
   robot: FaRobot,
   chip: FaMicrochip,
-  drone: TbDrone,
   trophy: FaTrophy,
   medal: FaMedal,
   cert: FaCertificate,
   wifi: FaWifi,
   bolt: FaBolt,
-  satellite: FaSatelliteDish,
+  mobile: FaMobileScreenButton,
   arm: GiMechanicalArm,
 }
 
